@@ -76,7 +76,30 @@ your next pull, informed by recent shots on the same profile.
 for dialing in a new bean or validating a grinder change. Both are
 cached on disk and re-used on every subsequent open.
 
-<img src="docs/screenshots/coach-compare.png" alt="Coach and Compare panels" />
+<img src="docs/screenshots/coach.png" alt="Coach panel" />
+
+<img src="docs/screenshots/compare.png" alt="Compare panel" />
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### Beans
+- Keep a running inventory of bean bags — roaster, origin, process,
+  roast date, tasting notes.
+- Mark one bag **active** and every new shot is auto-tagged with it,
+  along with your default grind setting and grinder RPM for that bag.
+- Shots remember the bag they came from, so the AI analysis and
+  coach can factor bean choice into their suggestions.
+- Scan a QR code on the bag (or paste a URL) to pre-fill a new bag
+  from a roaster's website.
+
+</td>
+<td>
+
+<img src="docs/screenshots/beans.png" alt="Beans inventory" />
 
 </td>
 </tr>
