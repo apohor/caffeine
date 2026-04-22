@@ -1,6 +1,8 @@
 <div align="center">
 
-# ☕ Caffeine
+<img src="web/public/icon-192.png" alt="Caffeine" width="96" />
+
+# Caffeine
 
 **A self-hosted companion app for the [Meticulous](https://meticuloushome.com) espresso machine.**
 
