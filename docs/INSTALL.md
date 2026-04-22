@@ -122,7 +122,7 @@ database on the `/data` volume.
 | `SYNC_INTERVAL` | `15m` | How often to reconcile with the machine's `/history`. Live capture is instant; this is a safety net. |
 | `TZ` | *system* | IANA zone (embedded zoneinfo; no OS timezone package needed). Drives preheat schedules. |
 | `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY` | *auto* | Override the auto-generated Web Push keypair. Leave unset to let Caffeine manage it. |
-| `VAPID_SUBJECT` | `mailto:caffeine@localhost` | The `Subscriber` claim push services see. |
+| `VAPID_SUBJECT` | `mailto:caffeine@invalid` | The `Subscriber` claim push services see. **Required to be a real mailto: or https: URL for iPhone.** Apple rejects the default with `BadJwtToken`; set this to e.g. `https://caffeine.your-domain.com` or `mailto:you@your-domain.com`. |
 | `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY` | — | *Seed* values for a fresh database only. The Settings UI is the source of truth after first boot. |
 
 ## AI providers

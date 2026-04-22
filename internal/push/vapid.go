@@ -18,12 +18,14 @@ import (
 // misbehaves; mailto: URLs are the canonical form but any URL works.
 func LoadOrGenerateVAPID(ctx context.Context, store *Store, envPub, envPriv, subject string) (VAPID, error) {
 	if subject == "" {
-		// Apple's web push gateway rejects the JWT with BadJwtToken when
-		// the "sub" claim uses a non-routable mailto domain like
-		// @localhost. Default to an IANA-reserved domain that every
-		// major push provider (Apple, FCM, Mozilla) accepts; operators
-		// can override with VAPID_SUBJECT.
-		subject = "mailto:caffeine@example.com"
+		// Apple's web.push.apple.com rejects the JWT with BadJwtToken
+		// when the "sub" claim uses a reserved / undeliverable address
+		// like @example.com or @localhost. Default to a mailto: URI
+		// using a domain nobody routes mail for, but that still parses
+		// as a valid RFC-5322 address; self-hosters are expected to set
+		// VAPID_SUBJECT to their own mailto: or https: origin (iPhone
+		// users: this is required — see docs/INSTALL.md).
+		subject = "mailto:caffeine@invalid"
 	}
 	// Operator-supplied env vars take precedence and get persisted.
 	if envPub != "" && envPriv != "" {
